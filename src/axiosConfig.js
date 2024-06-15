@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000', // Base URL do seu backend
+  baseURL: 'https://app-finan-back.onrender.com', // Base URL do seu backend
   headers: {
     'Content-Type': 'application/json',
   },

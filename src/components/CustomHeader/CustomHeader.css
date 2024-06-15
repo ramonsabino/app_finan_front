@@ -1,0 +1,49 @@
+.custom-header {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  background-color: rgba(239,175,166,255);
+  height: 64px;
+  position: relative;
+}
+
+.logo {
+  height: 64px;
+  margin-left: 100px;
+}
+
+.header-title {
+  color: white;
+  font-size: 18px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.menu-icon {
+  background-color: rgba(239,175,166,255);
+  border: none;
+  color: white;
+  position: absolute; /* Posiciona o ícone do menu absolutamente */
+  left: 10px; /* Posiciona o ícone do menu à esquerda */
+}
+
+.bell-icon {
+  font-size: 20px;
+  color: #ffffff;
+  position: absolute; /* Posiciona o ícone de notificação absolutamente */
+  right: 10px; /* Posiciona o ícone de notificação à direita */
+}
+
+.ubuntu-regular {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-medium {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}

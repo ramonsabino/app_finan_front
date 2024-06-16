@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import api from '../axiosConfig';
-
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 export interface Atendimento {
     _id: string;
@@ -157,6 +158,6 @@ export const useAtendimentoContext = () => useContext(AtendimentoContext);
 // Função auxiliar para extrair o mês da data
 export const extrairMesDaData = (data: string): string => {
     const date = new Date(data);
-    const month = date.toLocaleString('default', { month: 'long' });
+    const month = format(date, 'MMMM', { locale: ptBR });
     return month.charAt(0).toUpperCase() + month.slice(1); // Primeira letra em maiúsculo
 };

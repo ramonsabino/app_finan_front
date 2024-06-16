@@ -10,7 +10,7 @@ interface EntradaValor {
   valor: number;
   descricao?: string;
   pagamento: number;
-  categoria: string; // Incluímos o campo categoria aqui
+  categoria: string;
 }
 
 interface NovaEntrada {
@@ -196,7 +196,7 @@ const Rendimentos = () => {
       {entradasValores.map((entrada, index) => (
         <Card
           key={index}
-          title={`${entrada.mes} - ${entrada.tipo}`}
+          title={`${entrada.mes} - ${entrada.tipo === "Entrada" ? "Entrada" : "Saída"}`}
           style={{
             marginBottom: 16,
             backgroundColor: entrada.tipo === "Saida" ? "#ff0303" : "#03ff70",
@@ -215,15 +215,15 @@ const Rendimentos = () => {
             <strong>Mês:</strong> {entrada.mes}
           </p>
           <p>
-            <strong>Tipo:</strong> {entrada.tipo}
+            <strong>Tipo:</strong> {entrada.tipo === "Entrada" ? "Entrada" : "Saída"}
           </p>
           <p>
-            <strong>Valor:</strong> R$ {entrada.valor}
+            <strong>Valor:</strong> R$ {entrada.valor.toFixed(2)}
           </p>
         </Card>
       ))}
       <Modal
-        title="Detalhes das Saidas"
+        title="Detalhes das Saídas"
         visible={modalDetalhesVisible}
         onCancel={handleCancel}
         footer={[
@@ -236,7 +236,7 @@ const Rendimentos = () => {
           modalContent[key].map((entrada, subIndex) => (
             <Card
               key={subIndex}
-              title={`${entrada.mes} - ${entrada.tipo}`}
+              title={`${entrada.mes} - ${entrada.tipo === "Entrada" ? "Entrada" : "Saída"}`}
               style={{
                 marginBottom: 16,
                 backgroundColor:
@@ -247,7 +247,7 @@ const Rendimentos = () => {
                 <strong>Mês:</strong> {entrada.mes}
               </p>
               <p>
-                <strong>Tipo:</strong> {entrada.tipo}
+                <strong>Tipo:</strong> {entrada.tipo === "Entrada" ? "Entrada" : "Saída"}
               </p>
               <p>
                 <strong>Categoria:</strong> {entrada.categoria}
@@ -302,7 +302,7 @@ const Rendimentos = () => {
           <Form.Item label="Tipo" required>
             <Radio.Group value={tipo} onChange={handleTipoChange}>
               <Radio value="Entrada">Entrada</Radio>
-              <Radio value="Saida">Saida</Radio>
+              <Radio value="Saida">Saída</Radio>
             </Radio.Group>
           </Form.Item>
         </Form>
